@@ -17,6 +17,7 @@ export async function middleware(request: NextRequest) {
   if (!token && url.pathname.startsWith("/dashboard")) {
     return NextResponse.redirect(new URL("/signin", request.url));
   }
+  return NextResponse.next();
 }
 
 export const config = {
